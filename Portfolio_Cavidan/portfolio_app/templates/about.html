@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About {% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/responsive.css' %}">
+{% endblock %}
+{% block content %}
+
+			<!-- Main Content -->
+
+			<div class="main_content">
+				<div class="main_title_container d-flex flex-column align-items-start justify-content-end">
+					<div class="main_subtitle">{{ general_info.position }}</div>
+					<div class="main_title">{{ general_info.name_surname }}</div>
+				</div>
+				<div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
+					<div class="about_content">
+						<div class="about_title">Description</div>
+						<div class="about_text">
+						<p>{{ general_info.description }}</p>
+						</div>
+
+						<!-- Loaders -->
+
+						<div class="loaders clearfix">
+
+							<!-- Loader -->
+							<div class="loader_container">
+								<div class="loader" data-perc="{{ general_info.comunity }}"></div>
+								<div class="loader_content text-center">
+									<div class="loader_title">Processing Communication </div>
+								</div>
+							</div>
+
+							<!-- Loader -->
+							<div class="loader_container">
+								<div class="loader" data-perc="{{ general_info.solving }}"></div>
+								<div class="loader_content text-center">
+									<div class="loader_title">Problem solving</div>
+								</div>
+							</div>
+
+							<!-- Loader -->
+							<div class="loader_container">
+								<div class="loader" data-perc="{{ general_info.safety }}"></div>
+								<div class="loader_content text-center">
+									<div class="loader_title">Safety</div>
+								</div>
+							</div>
+
+							<!-- Loader -->
+							<div class="loader_container">
+								<div class="loader" data-perc="{{ general_info.info }}"></div>
+								<div class="loader_content text-center">
+									<div class="loader_title">Information</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+    {% block js %}
+        <script src="{% static 'portfolio_static/js/custom.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/greensock/TweenMax.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/greensock/TimelineMax.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/greensock/animation.gsap.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/progressbar/progressbar.js' %}"></script>
+    {% endblock %}
+
+{% endblock %}

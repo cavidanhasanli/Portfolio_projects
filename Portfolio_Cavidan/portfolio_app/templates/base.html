@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<title>{% block title %} Document {% endblock %}</title>
+<link rel="shortcut icon" type="image/png" href="{% static 'portfolio_static/images/icon_5.png' %}"/>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="vCard template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+<link href="{% static 'portfolio_static/plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/plugins/mCustomScrollbar/jquery.mCustomScrollbar.css' %}">
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+	<header class="header">
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<div class="logo">H/Javidan<span>.</span>CV</div>
+			<div class="main_nav d-flex flex-row align-items-end justify-content-start">
+				<ul class="d-flex flex-row align-items-center justify-content-start">
+					<li class="active"><a href="{% url 'about_url' %}">About</a></li>
+					<li><a href="{% url 'skills_url' %}">Skills</a></li>
+					<li><a href="{% url 'experience_url' %}">Experience</a></li>
+					<li><a href="{% url 'education_url' %}">Education</a></li>
+					<li><a href="{% url 'portfolio_url' %}">Portfolio</a></li>
+				</ul>
+				<div class="header_button ml-auto">
+					<a href="{{ general_info.file_cv.url }}" download>My cv is a  PDF form</a>
+					<div class="d-flex flex-column align-items-center justify-content-center"><img src="{% static 'portfolio_static/images/download.png' %}" alt=""></div>
+				</div>
+			</div>
+			<!-- Menu -->
+	<div class="menu">
+		<div class="menu_content d-flex flex-row align-items-start justify-content-end">
+			<div class="hamburger ml-auto">menu</div>
+			<div class="menu_nav text-right">
+				<ul>
+					<li><a href="{% url 'about_url' %}">About</a></li>
+					<li><a href="{% url 'skills_url' %}">Skills</a></li>
+					<li><a href="{% url 'experience_url' %}">Experience</a></li>
+					<li><a href="{% url 'education_url' %}">Education</a></li>
+					<li><a href="{% url 'portfolio_url' %}">Portfolio</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+		</div>
+	</header>
+<br>
+	<div class="content_container">
+		<div class="main_content_outer d-flex flex-xl-row flex-column align-items-start justify-content-start">
+
+			<!-- General Information -->
+			<div class="general_info d-flex flex-xl-column flex-md-row flex-column">
+				<div>
+					<div class="general_info_image">
+						<div class="background_image" style="background-image:url({{ general_info.profile_image.url }})"></div>
+						<div class="header_button_2">
+							<a href="{{ general_info.file_cv.url }}" download>My cv is a  PDF form</a>
+							<div class="d-flex flex-column align-items-center justify-content-center"><img src="{% static 'portfolio_static/images/download.png' %}" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="general_info_content">
+					<div class="general_info_content_inner mCustomScrollbar" data-mcs-theme="minimal-dark">
+						<div class="general_info_title">General Information</div>
+						<ul class="general_info_list">
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="{% static 'portfolio_static/images/icon_1.png' %}" alt=""></div>
+								<div class="general_info_text">Name: <span>{{ general_info.name_surname }}</span></div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="general_info_icon d-flex flex-column align-items-start justify-content-center"></div>
+								<div class="general_info_text">Location: <span>{{ general_info.location }}</span></div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="{% static 'portfolio_static/images/icon_2.png' %}" alt=""></div>
+								<div class="general_info_text">Date of Birth: <span>{{ general_info.date_of_birth }}</span></div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="{% static 'portfolio_static/images/icon_3.png' %}" alt=""></div>
+								<div class="general_info_text"><a href="mailto:contact@linque.com?subject=Job_Inquiry">{{ general_info.mail }}</a></div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="{% static 'portfolio_static/images/icon_4.png' %}" alt=""></div>
+								<div class="general_info_text">{{ general_info.phone_number }}</div>
+							</li>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="{% static 'portfolio_static/images/icon_5.png' %}" alt=""></div>
+								<div class="general_info_text"><a href="{{ general_info.web_site }}">{{ general_info.web_site }}</a></div>
+							</li>
+						</ul>
+
+						<!-- Social -->
+						<div class="social_container">
+							<ul class="d-flex flex-row align-items-start justify-content-start">
+								<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <!-- Main -->
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'portfolio_static/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'portfolio_static/styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'portfolio_static/styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'portfolio_static/plugins/mCustomScrollbar/jquery.mCustomScrollbar.js' %}"></script>
+<script src="{% static 'portfolio_static/plugins/easing/easing.js' %}"></script>
+<script src="{% static 'portfolio_static/plugins/parallax-js-master/parallax.min.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

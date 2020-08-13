@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Skills {% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/skills.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/skills_responsive.css' %}">
+{% endblock %}
+
+{% block content %}
+			<!-- Main Content -->
+
+			<div class="main_content">
+				<div class="main_title_container d-flex flex-column align-items-start justify-content-end">
+					<div class="main_subtitle">What I am good at</div>
+					<div class="main_title">My Skills</div>
+				</div>
+				<div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
+
+					<!-- Skills Content -->
+					<div class="skills">
+						<div class="skills_text">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-xl-6">
+										<p>{{ skills_general.skills_desc }}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Progress Bars -->
+						<div class="progress_bars">
+							<div class="container-fluid">
+								<div class="row">
+                                    {% for s in job_skills %}
+									<!-- Progress Bar -->
+									<div class="col-xl-4 col-lg-6 pb_col">
+										<div class="pb_item">
+											<div class="p_bar_title">{{ s.skills_name }}</div>
+											<div id="{{ s.js_interest }}" class="skill_bars" data-perc="{{ s.skills_interest }}" data-name="{{ s.js_interest }}" data-color-start="#79ccff" data-color-end="#9b74ff"></div>
+										</div>
+									</div>
+                                    {% endfor %}
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Milestones -->
+
+						<div class="milestones clearfix">
+
+							<!-- Milestone -->
+							<div class="milestone text-center">
+								<div class="milestone_icon"><img src="{% static 'portfolio_static/images/icon_6.png' %}" alt=""></div>
+								<div class="milestone_counter" data-end-value="{{ skills_general.experience }}">0</div>
+								<div class="milestone_text">Years of Experience</div>
+							</div>
+
+							<!-- Milestone -->
+							<div class="milestone text-center">
+								<div class="milestone_icon"><img src="{% static 'portfolio_static/images/icon_7.png' %}" alt=""></div>
+								<div class="milestone_counter" data-end-value="{{ skills_general.happy_client }}" data-sign-before="+">0</div>
+								<div class="milestone_text">Happy Clients</div>
+							</div>
+
+							<!-- Milestone -->
+							<div class="milestone text-center">
+								<div class="milestone_icon"><img src="{% static 'portfolio_static/images/icon_8.png' %}" alt=""></div>
+								<div class="milestone_counter" data-end-value="{{ skills_general.follower_facebook }}">0</div>
+								<div class="milestone_text">Followers on FB</div>
+							</div>
+
+							<!-- Milestone -->
+							<div class="milestone text-center">
+								<div class="milestone_icon"><img src="{% static 'portfolio_static/images/icon_9.png' %}" alt=""></div>
+								<div class="milestone_counter" data-end-value="{{ skills_general.finished_project }}">0</div>
+								<div class="milestone_text">Finished Projects</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+    {% block js %}
+        <script src="{% static 'portfolio_static/plugins/greensock/TweenMax.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/greensock/TimelineMax.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/greensock/animation.gsap.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+        <script src="{% static 'portfolio_static/plugins/progressbar/progressbar.js' %}"></script>
+        <script src="{% static 'portfolio_static/js/skills.js' %}"></script>
+    {% endblock %}
+{% endblock %}

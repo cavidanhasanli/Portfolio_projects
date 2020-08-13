@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Education {% endblock %}
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/education.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/education_responsive.css' %}">
+{% endblock %}
+
+{% block content %}
+			<!-- Main Content -->
+
+			<div class="main_content">
+				<div class="main_title_container d-flex flex-column align-items-start justify-content-end">
+					<div class="main_subtitle">What I am good at</div>
+					<div class="main_title">My Education</div>
+				</div>
+				<div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
+
+					<!-- Education -->
+
+					<div class="education">
+                        {% for e in education %}
+						<!-- Education Item -->
+						<div class="edu_item d-flex flex-lg-row flex-column align-items-start justfy-content-start">
+							<div><div>{{ e.start_date }}-{{ e.end_date }}</div></div>
+							<div><div class="edu_image"><img src="{{ e.edu_logo.url }}" alt=""></div></div>
+							<div class="edu_content">
+								<div class="edu_title_container">
+									<div class="edu_title">{{ e.edu_name }}</div>
+									<div class="edu_subtitle">{{ e.job_title }}</div>
+								</div>
+								<div class="edu_text">
+									<p>{{ e.desrp }}</p>
+								</div>
+							</div>
+						</div>
+                        {% endfor %}
+					</div>
+
+				</div>
+			</div>
+
+    {% block js %}
+    <script src="{% static 'portfolio_static/js/education.js' %}"></script>
+    {% endblock %}
+{% endblock %}
+
+

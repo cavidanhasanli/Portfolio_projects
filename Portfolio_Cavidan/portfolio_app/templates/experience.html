@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Experience {% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/experience.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio_static/styles/experience_responsive.css' %}">
+{% endblock %}
+
+{% block content %}
+			<!-- Main Content -->
+			<div class="main_content">
+				<div class="main_title_container d-flex flex-column align-items-start justify-content-end">
+					<div class="main_subtitle">What I am good at</div>
+					<div class="main_title">My Experience</div>
+				</div>
+				<div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
+
+					<!-- Experience -->
+
+					<div class="experience">
+
+                        {% for e in experience %}
+						<!-- Experience Item -->
+						<div class="exp_item d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div><div>{{ e.start_date }}-{{ e.end_date }}</div></div>
+							<div class="exp_content">
+								<div class="exp_title_container">
+									<div class="exp_title">{{ e.job_title }}</div>
+									<div class="exp_subtitle">{{ e.company_name }}</div>
+								</div>
+								<div class="exp_text">
+									<p>{{ e.desrp }}</p>
+								</div>
+							</div>
+						</div>
+                        {% endfor %}
+					</div>
+
+				</div>
+			</div>
+{% endblock %}
+
+<script src="{% static 'portfolio_static/js/experience.js' %}"></script>
