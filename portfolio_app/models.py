@@ -75,3 +75,7 @@ class PortfolioModel(models.Model):
 
     def __str__(self):
         return f'{self.project_name}'
+
+
+class Test(models.Model):
+    test = models.CharField(max_length=255)
