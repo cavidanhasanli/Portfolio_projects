@@ -24,11 +24,11 @@
 			<div class="logo">H/Javidan<span>.</span>CV</div>
 			<div class="main_nav d-flex flex-row align-items-end justify-content-start">
 				<ul class="d-flex flex-row align-items-center justify-content-start">
-					<li class="active"><a href="{% url 'about_url' %}">About</a></li>
-					<li><a href="{% url 'skills_url' %}">Skills</a></li>
-					<li><a href="{% url 'experience_url' %}">Experience</a></li>
-					<li><a href="{% url 'education_url' %}">Education</a></li>
-					<li><a href="{% url 'portfolio_url' %}">Portfolio</a></li>
+					<li class={{ activate }}><a href="{% url 'about_url' %}">About</a></li>
+					<li class={{ activate_skills }}><a href="{% url 'skills_url' %}">Skills</a></li>
+					<li class={{ activate_ex }}><a href="{% url 'experience_url' %}">Experience</a></li>
+					<li class={{ activate_edu }}><a href="{% url 'education_url' %}">Education</a></li>
+					<li class={{ activate_port }}><a href="{% url 'portfolio_url' %}">Portfolio</a></li>
 				</ul>
 				<div class="header_button ml-auto">
 					<a href="{{ general_info.file_cv.url }}" download>My cv is a  PDF form</a>
